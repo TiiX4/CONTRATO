@@ -1,23 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Contrato de Amor - Churrita & Churrito</title>
-<link rel="stylesheet" href="styles.css">
-<script defer src="script.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contrato de Relación v1.0</title>
+
+<style>
+body {
+    margin: 0;
+    background: #0d0d0d;
+    color: #fff;
+    font-family: "Segoe UI", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(255, 0, 80, 0.5);
+    width: 100%;
+    max-width: 600px;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: none;
+    background: #333;
+    color: #fff;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background: #ff2a6d;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff4f85;
+}
+
+.contract-box {
+    margin-top: 25px;
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    line-height: 1.5;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+
 </head>
 <body>
+
 <div class="container">
-  <h1>Contrato de Amor<br><span> los churris </span></h1>
-  <p class="intro">Hoy cumplimos 3 meses, y quiero que este pequeño contrato sea una promesa bonita entre tú y yo.</p>
+    <h1>Contrato de Relación Los Churris</h1>
 
-  <div class="form-section">
-    <label for="nombre">Escribe tu nombre, mi amor:</label>
-    <input type="text" id="isis" placeholder="Tu nombre aquí...">
-    <button onclick="aceptar()">Aceptar Contrato</button>
-  </div>
+    <label for="isis">Ingresa tu nombre, mi amor:</label>
+    <input type="text" id="nombre" placeholder="Tu nombre aquí...">
 
-  <div id="resultado" class="resultado oculto"></div>
+    <button onclick="mostrarContrato()">Aceptar Contrato</button>
+
+    <div id="contrato" class="contract-box hidden"></div>
 </div>
+
+<script>
+function mostrarContrato() {
+    const nombre = document.getElementById("nombre").value.trim();
+    const contrato = document.getElementById("contrato");
+
+    if (nombre === "") {
+        contrato.innerHTML = "<p>Necesito que escribas tu nombre, mi amor ❤️</p>";
+        contrato.classList.remove("hidden");
+        return;
+    }
+
+    contrato.innerHTML = `
+        <h2>Contrato de Relación ❤️</h2>
+        <p>Yo, <strong>${nombre}</strong>, acepto formar parte de esta relación con MI MARIDO.</p>
+        <p>Me comprometo a:</p>
+        <ul>
+            <li>Amar con sinceridad y cariño todos los días.</li>
+            <li>Respetar, apoyar y valorar cada momento juntos.</li>
+            <li>Construir una relación bonita, sana y llena de detalles.</li>
+            <li>Celebrar cada mes como si fuera el primero.</li>
+        </ul>
+        <p style="margin-top:15px;">Firmado: <strong>MUJER</strong> 💖</p>
+    `;
+
+    contrato.classList.remove("hidden");
+}
+</script>
+
 </body>
 </html>
